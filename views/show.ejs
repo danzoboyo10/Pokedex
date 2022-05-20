@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Pokedex Details</title>
+</head>
+<body>
+    <h1><%= pokedex.name %> Show Page</h1>
+    <p>This is a <%= pokedex.color %> color</p>
+    <%  if (pokedex.readyToEat) { %>
+        <p>This Pokemon is ready to eat</p>
+    <% } else { %> 
+        <p> This Pokemon is not ready to eat</p>   
+    <%} %>
+
+    <a href = "/pokedex"> Back to Pokedex Index</a>
+</body>
+</html>
