@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"))
 
 //Index
-app.get('/pokedex', (req, res) => {
+app.get('/pokedex/', (req, res) => {
     res.render('index.ejs', { allPokemon: pokedex });
     // ^-- this is just a descriptive way of referencing our pokedex array inside index.ejs
 });
@@ -26,7 +26,7 @@ app.get("/pokedex/new", (req, res) => {
 
 //Destroy
 app.delete("/pokedex/:indexOfPokedexArray", (req, res) => {
-    fruits.splice(req.params.indexOfFruitsArray, 1) //remove the item from the array
+    pokedex.splice(req.params.indexOfPokedexArray, 1) //remove the item from the array
     res.redirect("/pokedex") //redirect back to index route
   });
 
@@ -53,9 +53,9 @@ app.post("/fruits", (req, res) => {
         //if not checked, req.body.readyToEat is undefined
         req.body.readyToEat = false //do some data correction
     }
-    fruits.push(req.body)
-    console.log(fruits)
-    res.redirect("/fruits")
+    pokedex.push(req.body)
+    console.log(pokedex)
+    res.redirect("/pokedex")
 })
 
 //Edit 
@@ -77,7 +77,7 @@ app.get('/pokedex/:indexOfPokedexArray', (req, res) => {
     // informs the template engine to render a template
     // we just provide the name as a string
     res.render('show.ejs', {
-        fruit: fruits[req.params.indexOfPokedexArray] // this references a single fruit
+        allPokemon: pokedex[req.params.indexOfPokedexArray] // this references a single fruit
         // and passes it to the template so we can access it there
     });
 });

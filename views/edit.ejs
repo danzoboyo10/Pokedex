@@ -9,13 +9,11 @@
     <h1>Edit Pokedex Page</h1>
     
 <form action="/pokedex/<%=index%>?_method=PUT" method="POST">
-      <!--  NOTE: the form is pre-populated with values for the server-->
-      Name: <input type="text" name="name" value="<%=pokedex.name%>" /><br />
-      Color: <input type="text" name="color" value="<%=pokedex.color%>" /><br />
-      Is Ready To Eat: <input type="checkbox" name="readyToEat" <%
-      if(pokedex.readyToEat === true){ %> checked <% } %> />
-      <br/>
-      <input type="submit" name="" value="Submit Changes" />
+    
+      Pokemon Name: <input type="text" name="name" value="<%=allPokemon.name%>" /><br />
+      Damages: <input type="text" name="damages" value="<%=allPokemon.damages%>" /><br />
+      Image: <input type="text" name = "img" value="<%=allPokemon.img%>" /> <br />
+      Submit Changes: <input type="submit" name="" value=<%="Submit Changes%>"/><br />
     </form>
   </body>
 </html>

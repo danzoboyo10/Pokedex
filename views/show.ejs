@@ -7,14 +7,32 @@
     <title>See Pokedex Details</title>
 </head>
 <body>
-    <h1><%= pokedex.name %> Show Page</h1>
-    <p>This is a <%= pokedex.color %> color</p>
-    <%  if (pokedex.readyToEat) { %>
-        <p>This Pokemon is ready to eat</p>
-    <% } else { %> 
-        <p> This Pokemon is not ready to eat</p>   
-    <%} %>
+    <h1><%= allPokemon.name %> </h1>
+    <h3> Damages:</h3>
+    <ul>
+       <% for(pokemonKey in allPokemon.damages) { %>
+        <li> <%= pokemonKey %> : <%=  allPokemon.damages[pokemonKey] %></li>  
 
-    <a href = "/pokedex"> Back to Pokedex Index</a>
+      <%  } %>
+    </ul>
+
+      <h3> Stats:</h3>
+      <ul>
+         <% for(pokemonKey in allPokemon.stats) { %>
+          <li> <%= pokemonKey %> : <%=  allPokemon.stats[pokemonKey] %></li>  
+  
+        <%  } %>
+
+    </ul>
+    <h3> Type:</h3>
+    <ul>
+       <% for(pokemonKey in allPokemon.type) { %>
+        <li> <%= pokemonKey %> : <%=  allPokemon.type[pokemonKey] %></li>  
+
+      <%  } %>
+
+  </ul>
+
+    <a href = "/pokedex/"> Back to Pokedex Index</a>
 </body>
 </html>
