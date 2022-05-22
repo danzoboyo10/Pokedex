@@ -5,15 +5,20 @@
     <title>Pokedex App</title>
     <link rel="stylesheet" href="/css/app.css" />
   </head>
-  <body>
+  <body style="background-color:lightblue">
     <h1>Edit Pokedex Page</h1>
-    
-<form action="/pokedex/<%=index%>?_method=PUT" method="POST">
+    <form action="/pokedex/<%=index%>?_method=PUT" method="POST">
     
       Pokemon Name: <input type="text" name="name" value="<%=allPokemon.name%>" /><br />
-      Damages: <input type="text" name="damages" value="<%=allPokemon.damages%>" /><br />
-      Image: <input type="text" name = "img" value="<%=allPokemon.img%>" /> <br />
-      Submit Changes: <input type="submit" name="" value=<%="Submit Changes%>"/><br />
+      Image: <input type="text" name = "img" value="<%=allPokemon.img%>" /><br />
+      HP: <input type="text" name = "hp" value="<%=allPokemon.stats.hp%>" /><br />
+      Attack: <input type="text" name = "attack" value="<%=allPokemon.stats.attack%>" /><br />
+      Defense: <input type="text" name = "defense" value="<%=allPokemon.stats.defense%>" /><br />
+      Spattack: <input type="text" name = "spattack" value="<%=allPokemon.stats.spattack%>" /><br />
+      Spdefense: <input type="text" name = "spdefense" value="<%=allPokemon.stats.spdefense%>" /><br />
+      Speed: <input type="text" name = "speed" value="<%=allPokemon.stats.speed%>" /><br />
+ Submit Changes: <input type="submit" name="" value="Submit Changes"/><br />
     </form>
+
   </body>
 </html>

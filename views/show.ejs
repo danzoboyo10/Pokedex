@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See Pokedex Details</title>
 </head>
-<body>
+<body style="background-color:lightblue;">
     <h1><%= allPokemon.name %> </h1>
     <h3> Damages:</h3>
     <ul>
@@ -30,9 +30,11 @@
         <li> <%= pokemonKey %> : <%=  allPokemon.type[pokemonKey] %></li>  
 
       <%  } %>
+      <img src = "<%= allPokemon.img %>"/>
 
   </ul>
 
+  </ul>
     <a href = "/pokedex/"> Back to Pokedex Index</a>
 </body>
 </html>

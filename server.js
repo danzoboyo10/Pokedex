@@ -31,41 +31,75 @@ app.delete("/pokedex/:indexOfPokedexArray", (req, res) => {
   });
 
 //Update
-app.put("/pokedex/:indexOfPokedexArray", (req, res) => {
-    //:indexOfFruitsArray is the index of our fruits array that we want to change
-    if (req.body.readyToEat === "on") {
-      //if checked, req.body.readyToEat is set to 'on'
-      req.body.readyToEat = true
-    } else {
-      //if not checked, req.body.readyToEat is undefined
-      req.body.readyToEat = false
+app.put("/pokedex/:id", (req, res) => {
+   
+   
+    pokedex[req.params.id] = {
+        name: req.body.name,
+        img: req.body.img,
+
+        stats:  {
+        hp: req.body.hp,
+        attack: req.body.attack,
+        defense: req.body.defense,
+        spattack: req.body.spattack,
+        spdefense: req.body.spdefense,
+        speed: req.body.speed,
+      },
+
+
+
     }
-    pokedex[req.params.indexOfPokedexArray] = req.body //in our fruits array, find the index that is specified in the url (:indexOfFruitsArray).  Set that element to the value of req.body (the input data)
-    res.redirect("/pokedex") //redirect to the index page
+    res.redirect("/pokedex") 
   })
 
 //Create 
-app.post("/fruits", (req, res) => {
-    if (req.body.readyToEat === "on") {
-        //if checked, req.body.readyToEat is set to 'on'
-        req.body.readyToEat = true //do some data correction
-    } else {
-        //if not checked, req.body.readyToEat is undefined
-        req.body.readyToEat = false //do some data correction
-    }
-    pokedex.push(req.body)
+app.post("/pokedex", (req, res) => {
+   
+    pokedex.unshift(
+
+       {
+        name: req.body.name,
+        img: req.body.img,
+        
+  
+        stats:  {
+        hp: req.body.hp,
+        attack: req.body.attack,
+        defense: req.body.defense,
+        spattack: req.body.spattack,
+        spdefense: req.body.spdefense,
+        speed: req.body.speed,
+        
+      },
+        type: [
+            req.body.type
+        ],
+        type: [
+            req.body.type
+        ]
+          
+        
+    }),
+  
+
+
+
+    
     console.log(pokedex)
     res.redirect("/pokedex")
 })
 
+   
+
 //Edit 
-app.get("/pokedex/:indexOfPokedexArray/edit", (req, res) => {
+app.get("/pokedex/:id/edit", (req, res) => {
     res.render(
       "edit.ejs", //render views/edit.ejs
       {
         //pass in an object that contains
-        pokedexKey: pokedex[req.params.indexOfPokedexArray], //the fruit object
-        index: req.params.indexOfPokedexArray, //... and its index in the array
+        allPokemon: pokedex[req.params.id], //the fruit object
+        index: req.params.id, //... and its index in the array
       }
     )
   })
